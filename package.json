@@ -25,7 +25,7 @@
   "scripts": {
     "lint": "eslint --max-warnings 0 src/**/*.js",
     "prepublishOnly": "npm run lint",
-    "ci": "npm link && koinos-sdk-as-cli create mycontract && cd mycontract && npm install && npm link @koinos/sdk-as-cli && npm run build:debug && npm test && cd .. && npm unlink",
+    "ci": "npm link && koinos-sdk-as-cli create mycontract && cd mycontract && npm install && npm link @koinos/sdk-as-cli && npm run build:debug && npm test && cd .. && npm unlink -g @koinos/sdk-as-cli",
     "ci:windows": "npm link && koinos-sdk-as-cli create mycontract && cd mycontract && npm install && npm link @koinos/sdk-as-cli && koinos-sdk-as-cli build-all debug 0 mycontract.proto && koinos-sdk-as-cli run-tests"
   }
 }

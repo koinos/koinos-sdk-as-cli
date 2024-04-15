@@ -98,18 +98,18 @@ program.command('build-all')
 
     // compile proto file
     console.log(chalk.green('Generating ABI file...'))
-    let cmd = `${generateAuthEndpoint} npm run protoc --plugin=protoc-gen-abi=${koinoABIGenPath} --abi_out=abi/ ${protoFileNames.join(' ')} ${includeKoinosChainAuth}`
+    let cmd = `${generateAuthEndpoint} npx protoc --plugin=protoc-gen-abi=${koinoABIGenPath} --abi_out=abi/ ${protoFileNames.join(' ')} ${includeKoinosChainAuth}`
     console.log(chalk.blue(cmd))
     execSync(cmd, { stdio: 'inherit' })
 
     console.log(chalk.green('Generating proto files...'))
-    cmd = `npm run protoc --plugin=protoc-gen-as=${ASProtoGenPath} --as_out=. assembly/proto/*.proto`
+    cmd = `npx protoc --plugin=protoc-gen-as=${ASProtoGenPath} --as_out=. assembly/proto/*.proto`
     console.log(chalk.blue(cmd))
     execSync(cmd, { stdio: 'inherit' })
 
     // Generate CONTRACT.boilerplate.ts and index.ts files
     console.log(chalk.green('Generating boilerplate.ts and index.ts files...'))
-    cmd = `${generateAuthEndpoint}npm run protoc --plugin=protoc-gen-as=${koinosASGenPath} --as_out=assembly/ ${protoFileNames[0]}`
+    cmd = `${generateAuthEndpoint}npx protoc --plugin=protoc-gen-as=${koinosASGenPath} --as_out=assembly/ ${protoFileNames[0]}`
     console.log(chalk.blue(cmd))
     execSync(cmd, { stdio: 'inherit' })
 
@@ -143,7 +143,7 @@ program.command('generate-abi')
 
     // compile proto file
     console.log(chalk.green('Generating ABI file...'))
-    const cmd = `npm run protoc --plugin=protoc-gen-abi=${koinoABIGenPath} --abi_out=abi/ ${protoFileNames.join(' ')}`
+    const cmd = `npx protoc --plugin=protoc-gen-abi=${koinoABIGenPath} --abi_out=abi/ ${protoFileNames.join(' ')}`
     console.log(chalk.blue(cmd))
     execSync(cmd, { stdio: 'inherit' })
   })
@@ -162,7 +162,7 @@ program.command('generate-contract-as')
 
     // Generate CONTRACT.boilerplate.ts and index.ts files
     console.log(chalk.green('Generating boilerplate.ts and index.ts files...'))
-    const cmd = `${generateAuthEndpoint}npm run protoc --plugin=protoc-gen-as=${koinosASGenPath} --as_out=assembly/ ${protoFileNames.join(' ')}`
+    const cmd = `${generateAuthEndpoint}npx protoc --plugin=protoc-gen-as=${koinosASGenPath} --as_out=assembly/ ${protoFileNames.join(' ')}`
     console.log(chalk.blue(cmd))
     execSync(cmd, { stdio: 'inherit' })
   })
@@ -172,7 +172,7 @@ program.command('generate-contract-proto')
   .action(() => {
     // compile proto file
     console.log(chalk.green('Generating Contract AS proto files...'))
-    const cmd = `npm run protoc --plugin=protoc-gen-as=${ASProtoGenPath} --as_out=. assembly/proto/*.proto`
+    const cmd = `npx protoc --plugin=protoc-gen-as=${ASProtoGenPath} --as_out=. assembly/proto/*.proto`
     console.log(chalk.blue(cmd))
     execSync(cmd, { stdio: 'inherit' })
   })
@@ -183,7 +183,7 @@ program.command('generate-as-proto')
   .action((protoFileNames) => {
     // compile proto files
     console.log(chalk.green('Generating AS proto files...'))
-    const cmd = `npm run protoc --plugin=protoc-gen-as=${ASProtoGenPath} --as_out=. ${protoFileNames.join(' ')}`
+    const cmd = `npx protoc --plugin=protoc-gen-as=${ASProtoGenPath} --as_out=. ${protoFileNames.join(' ')}`
     console.log(chalk.blue(cmd))
     execSync(cmd, { stdio: 'inherit' })
   })
@@ -192,7 +192,7 @@ program.command('run-tests')
   .description('Run contract tests')
   .action(() => {
     console.log(chalk.green('Running tests...'))
-    const cmd = 'npm asp --verbose --config as-pect.config.js'
+    const cmd = 'npx asp --verbose --config as-pect.config.js'
     console.log(chalk.blue(cmd))
     execSync(cmd, { stdio: 'inherit' })
   })
