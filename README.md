@@ -9,10 +9,6 @@
 # with npm
 npm install -g @koinos/sdk-as-cli
 
-# with yarn
-yarn global add @koinos/sdk-as-cli
-```
-
 ## Create a contract boilerplate
 ```sh
 # will create "mycontract" in the current working folder
