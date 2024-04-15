@@ -8,6 +8,7 @@
 ```sh
 # with npm
 npm install -g @koinos/sdk-as-cli
+```
 
 ## Create a contract boilerplate
 ```sh
