@@ -2,6 +2,7 @@
   "name": "##_PROTO_PACKAGE_##",
   "version": "0.1.0",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
   },
   "devDependencies": {
